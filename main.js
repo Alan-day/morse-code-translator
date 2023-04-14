@@ -9,6 +9,9 @@ const handleEnglish = () => {
   output.innerHTML = morseToEnglish(inputValue.value);
 };
 
+const handleMorse = () => {
+  output.innerHTML = englishToMorse(inputValue.value);
+};
 
 toEnglishButton.addEventListener("click", handleEnglish);
-toMorseButton.addEventListener("click", englishToMorse);
+toMorseButton.addEventListener("click", handleMorse);
