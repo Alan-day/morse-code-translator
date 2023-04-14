@@ -1,13 +1,7 @@
-let toEnglishButton = document.querySelector(".toEnglish");
-let toMorseButton = document.querySelector(".toMorse");
-let inputValue = document.querySelector(".input");
-let output = document.querySelector(".output");
-
-const englishToMorse = (string) => {
+export const englishToMorse = (string) => {
   let message = "unidentified character in the input box";
-  array = inputValue.value.split("") || string.split("");
-  newArray = [];
-
+  const array = string.split("");
+  const newArray = [];
   let alphabet = {
     A: ".-",
     B: "-...",
@@ -78,22 +72,19 @@ const englishToMorse = (string) => {
 
   for (let i = 0; i < array.length; i++) {
     for (const key in alphabet) {
-      if (alphabet.hasOwnProperty(`${array[i]}`) == false) {
-        output.innerHTML = message;
-      }
       if (array[i] == key) {
         newArray.push(alphabet[key]);
       }
     }
   }
 
-  return (output.innerHTML = newArray.join("/").toString(""));
+  return newArray.join("/").toString("");
 };
 
-const morseToEnglish = () => {
+export const morseToEnglish = (string) => {
   let message = "unidentified character in the input box";
-  array = inputValue.value.split("/");
-  newArray = [];
+  const array = string.split("/");
+  const newArray = [];
 
   let alphabet = {
     "-----": "0",
@@ -151,9 +142,5 @@ const morseToEnglish = () => {
     }
   }
 
-  output.innerHTML = newArray.join("").toString("");
-  return newArray.join("/").toString("");
+  return newArray.join("").toString("");
 };
-
-toEnglishButton.addEventListener("click", morseToEnglish);
-toMorseButton.addEventListener("click", englishToMorse);
