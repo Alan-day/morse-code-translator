@@ -3,9 +3,9 @@ let toMorseButton = document.querySelector(".toMorse");
 let inputValue = document.querySelector(".input");
 let output = document.querySelector(".output");
 
-const englishToMorse = () => {
-  let message = "incorrect character used";
-  array = inputValue.value.split("");
+const englishToMorse = (string) => {
+  let message = "unidentified character in the input box";
+  array = inputValue.value.split("") || string.split("");
   newArray = [];
 
   let alphabet = {
@@ -60,7 +60,7 @@ const englishToMorse = () => {
     x: "-..-",
     y: "-.--",
     z: "--..",
-    " ": "/",
+    " ": " ",
     1: ".----",
     2: "..---",
     3: "...--",
@@ -71,27 +71,27 @@ const englishToMorse = () => {
     8: "---..",
     9: "----.",
     0: "-----",
+    "!": "-.-.--",
+    "?": " ..--..",
+    "@": ".--.-.",
   };
 
   for (let i = 0; i < array.length; i++) {
     for (const key in alphabet) {
+      if (alphabet.hasOwnProperty(`${array[i]}`) == false) {
+        output.innerHTML = message;
+      }
       if (array[i] == key) {
         newArray.push(alphabet[key]);
       }
     }
   }
 
-  output.innerHTML = newArray.join("/").toString("");
-  return newArray.join("/").toString("");
+  return (output.innerHTML = newArray.join("/").toString(""));
 };
 
-
-
-
-
-
 const morseToEnglish = () => {
-  let message = "incorrect character used";
+  let message = "unidentified character in the input box";
   array = inputValue.value.split("/");
   newArray = [];
 

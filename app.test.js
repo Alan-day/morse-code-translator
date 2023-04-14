@@ -16,26 +16,26 @@ describe("testing letters", () => {
     expect(string).toBe(" .- / -... / -.-. / -.. / . / ..-. ");
   });
 
-  it("should return    -... -.. -.-.-- when given the string of 'bD!' ", () => {
-    const string = englishToMorse("bD!");
-    expect(string).toBe("  -... -.. -.-.-- ");
+  it("should return    -... -.. -.-.-- when given the string of '! ? @' ", () => {
+    const string = englishToMorse("! ? @");
+    expect(string).toBe("-.-.-- / ..--.. / .--.-. ");
   });
 
   it("should return .- -... / -.-. -.. when given the string of 'aB cD' ", () => {
     const string = englishToMorse("aB cD");
-    expect(string).toBe("  .- -... / -.-. -.. ");
+    expect(string).toBe(".-/-.../ /-.-./-..");
   });
 
   it("should return . .... ..-. .... .--. .- --. --- ..-. .... -.. .--. .-. .... --. -.. when given the string of 'ehfhpAgofhDprhgD' ", () => {
     const string = englishToMorse("ehfhpAgofhDprhgD");
     expect(string).toBe(
-      "  . .... ..-. .... .--. .- --. --- ..-. .... -.. .--. .-. .... --. -.."
+      "./..../..-./..../.--./.-/--./---/..-./..../-../.--./.-./..../--./-.."
     );
   });
 
   it("should return .- / .-.. / .- / -.when given the string of 'A L A N' ", () => {
     const string = englishToMorse("A L A N");
-    expect(string).toBe(".- / .-.. / .- / -.");
+    expect(string).toBe(".-/ /.-../ /.-/ /-.");
   });
 
   it("should return an error when given the string of 'ś' ", () => {
